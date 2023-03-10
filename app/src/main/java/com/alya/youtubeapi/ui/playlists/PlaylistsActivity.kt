@@ -3,7 +3,6 @@ package com.alya.youtubeapi.ui.playlists
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.View
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
@@ -13,7 +12,7 @@ import com.alya.youtubeapi.adapter.PlaylistAdapter
 import com.alya.youtubeapi.base.BaseActivity
 import com.alya.youtubeapi.databinding.PlaylistsMainBinding
 import com.alya.youtubeapi.internet.Connection
-import com.alya.youtubeapi.itemclick.PlaylistDetailActivity
+import com.alya.youtubeapi.detail.PlaylistDetailActivity
 import com.alya.youtubeapi.model.Item
 
 class PlaylistsActivity: BaseActivity<PlaylistsMainBinding, PlaylistsViewModel>() {

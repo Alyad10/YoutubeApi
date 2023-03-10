@@ -1,4 +1,4 @@
-package com.alya.youtubeapi.itemclick
+package com.alya.youtubeapi.detail
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

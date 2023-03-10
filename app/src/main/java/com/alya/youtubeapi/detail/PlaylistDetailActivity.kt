@@ -1,4 +1,4 @@
-package com.alya.youtubeapi.itemclick
+package com.alya.youtubeapi.detail
 
 import android.os.Bundle
 import android.view.LayoutInflater
