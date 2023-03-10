@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">YoutubeApi</string>
+    <string name="not_connection_message">Нет интернет соединения</string>
+    <string name="playlist">playlist</string>
+</resources>
