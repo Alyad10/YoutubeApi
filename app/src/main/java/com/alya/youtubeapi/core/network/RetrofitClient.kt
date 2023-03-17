@@ -1,4 +1,5 @@
-package com.alya.youtubeapi.remote
+package com.alya.youtubeapi.core.network
+import com.alya.youtubeapi.data.remote.ApiService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

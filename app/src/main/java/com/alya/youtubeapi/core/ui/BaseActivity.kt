@@ -1,16 +1,10 @@
-package com.alya.youtubeapi.base
+package com.alya.youtubeapi.core.ui
 
-import android.content.Context
-import android.content.Intent
-import android.net.ConnectivityManager
 import android.os.Bundle
 import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
 import androidx.viewbinding.ViewBinding
-import com.alya.youtubeapi.R
-import com.alya.youtubeapi.adapter.PlaylistAdapter
-import com.alya.youtubeapi.databinding.UncludedLayoutBinding
 
 abstract class BaseActivity<VB : ViewBinding, VM : ViewModel> : AppCompatActivity() {
     protected lateinit var binding: VB

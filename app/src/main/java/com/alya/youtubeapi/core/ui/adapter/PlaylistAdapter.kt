@@ -1,11 +1,11 @@
-package com.alya.youtubeapi.adapter
+package com.alya.youtubeapi.core.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.alya.youtubeapi.databinding.ItemPlaylistBinding
-import com.alya.youtubeapi.model.Item
-import com.alya.youtubeapi.model.Playlists
+import com.alya.youtubeapi.data.remote.model.Item
+import com.alya.youtubeapi.data.remote.model.Playlists
 import com.bumptech.glide.Glide
 import kotlin.reflect.KFunction1
 

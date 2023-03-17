@@ -1,7 +1,9 @@
-package com.alya.youtubeapi.remote
+package com.alya.youtubeapi.data.remote
 
-import com.alya.youtubeapi.model.PlaylistItem
-import com.alya.youtubeapi.model.Playlists
+import android.accounts.AuthenticatorDescription
+import com.alya.youtubeapi.data.remote.model.Localized
+import com.alya.youtubeapi.data.remote.model.PlaylistItem
+import com.alya.youtubeapi.data.remote.model.Playlists
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -15,13 +17,12 @@ interface ApiService {
         @Query("part") part: String,
         @Query("maxResults") maxResults: Int
     ): retrofit2.Call<Playlists>
+
     @GET("playlistItems")
     fun getItemLists(
         @Query("key") apiKey: String,
         @Query("part") part: String,
         @Query("maxResults") maxResults: Int,
         @Query("playlistId") id: String,
-        ):Call<PlaylistItem>
-
-
+    ): Call<PlaylistItem>
 }
