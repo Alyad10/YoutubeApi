@@ -43,7 +43,7 @@ class PlaylistsActivity: BaseActivity<PlaylistsMainBinding, PlaylistsViewModel>(
             when(it.status){
                 Status.SUCCESS ->{
                     binding.recyclerView.adapter = adapter
-                    adapter.setItem(it.data?.items as ArrayList<Item>)
+                    adapter.setItem(it!!.data!!.items)
                     viewModel.loading.postValue(false)
 //            Toast.makeText(this, it.etag.toString(), Toast.LENGTH_SHORT).show()
                 }

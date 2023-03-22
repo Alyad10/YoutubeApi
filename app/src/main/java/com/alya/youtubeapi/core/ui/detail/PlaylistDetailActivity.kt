@@ -1,12 +1,14 @@
 package com.alya.youtubeapi.core.ui.detail
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
-import com.alya.youtubeapi.core.network.result.Status
 import com.alya.youtubeapi.core.ui.adapter.VideoAdapter
 import com.alya.youtubeapi.core.ui.BaseActivity
+import com.alya.youtubeapi.core.ui.videoplayer.PlayerActivity
+import com.alya.youtubeapi.data.remote.model.Item
 import com.alya.youtubeapi.databinding.ActivityPlaylistDetailBinding
 
 class PlaylistDetailActivity : BaseActivity<ActivityPlaylistDetailBinding, DetailViewModel>() {
@@ -20,7 +22,7 @@ class PlaylistDetailActivity : BaseActivity<ActivityPlaylistDetailBinding, Detai
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        adapter = VideoAdapter()
+        adapter = VideoAdapter(onVideoClick = this::onVideoClick)
         binding.title.text = title
         binding.description.text = description
         setselectedItems()
@@ -46,6 +48,13 @@ class PlaylistDetailActivity : BaseActivity<ActivityPlaylistDetailBinding, Detai
         }
 
         }
+    private fun onVideoClick(item : Item){
+        val intent = Intent(this@PlaylistDetailActivity, PlayerActivity::class.java)
+        intent.putExtra("id_video", item.id)
+        intent.putExtra("title_video", item.snippet.title)
+        intent.putExtra("description_video",item.snippet.description)
+        startActivity(intent)
+    }
 
     override val viewModel: DetailViewModel
         get() = ViewModelProvider(this)[DetailViewModel::class.java]
@@ -56,9 +65,8 @@ class PlaylistDetailActivity : BaseActivity<ActivityPlaylistDetailBinding, Detai
             if (id != null) {
                 viewModel.itemList(id = id).observe(this) {
                     binding.rvPlaylist.adapter = adapter
-                    adapter.setselectedList(it.items)
+                    it.data?.let { it1 -> adapter.setselectedList(it1.items) }
                 }
-
             }
         }
 
