@@ -45,7 +45,6 @@ class PlaylistsActivity: BaseActivity<PlaylistsMainBinding, PlaylistsViewModel>(
                     binding.recyclerView.adapter = adapter
                     adapter.setItem(it!!.data!!.items)
                     viewModel.loading.postValue(false)
-//            Toast.makeText(this, it.etag.toString(), Toast.LENGTH_SHORT).show()
                 }
                 Status.LOADING ->{
                     viewModel.loading.postValue(true)
@@ -80,22 +79,7 @@ class PlaylistsActivity: BaseActivity<PlaylistsMainBinding, PlaylistsViewModel>(
 
     private fun checkConnection() {
 
-//        val connectionManager = com.alya.youtubeapi.internet.NetworkConnection(application)
-//        connectionManager.observe(this) {
-//            if (!it){
-//                binding.connectionContainer.isVisible= true
-//                binding.connectionView.tryAgain.setOnClickListener {
-//                    val isConnection = Connection.isNetworkAvailable(this)
-//                    if (!isConnection){
-//                        Toast.makeText(this, getString(R.string.not_connection_message), Toast.LENGTH_SHORT)
-//                    .show()
-//                    }else{
-//                        binding.connectionContainer.isVisible = false
-//                    }
-//                }
-//                initView()
-//
-//            }
+
             val isConnection = Connection.isNetworkAvailable(this)
             if (!isConnection) {
                 Toast.makeText(this, getString(R.string.not_connection_message), Toast.LENGTH_SHORT)
