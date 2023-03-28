@@ -17,7 +17,6 @@ class Repozitory {
 
         return liveData(Dispatchers.IO) {
             emit(Resource.loading())
-
             val response = dataSource.getPlayLists()
             emit(response)
         }

@@ -19,6 +19,7 @@ data class Item(
     val snippet: Snippet, )
 
 data class ContentDetails(
+    var videoId : String?,
     val itemCount: Int
 )
 data class Localized(

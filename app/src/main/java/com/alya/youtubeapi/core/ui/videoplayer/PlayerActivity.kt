@@ -1,4 +1,5 @@
 package com.alya.youtubeapi.core.ui.videoplayer
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.SparseArray
 import android.view.LayoutInflater
@@ -13,13 +14,10 @@ import com.alya.youtubeapi.core.ui.BaseActivity
 import com.alya.youtubeapi.databinding.ActivityPlayerBinding
 import com.google.android.exoplayer2.MediaItem
 import com.google.android.exoplayer2.SimpleExoPlayer
-import com.google.android.exoplayer2.source.MediaSource
 import com.google.android.exoplayer2.source.MergingMediaSource
 import com.google.android.exoplayer2.source.ProgressiveMediaSource
-import com.google.android.exoplayer2.ui.PlayerView
 import com.google.android.exoplayer2.upstream.DefaultHttpDataSource
 import com.google.android.exoplayer2.util.Util
-import org.chromium.base.Callback
 
 
 class PlayerActivity : BaseActivity<ActivityPlayerBinding, PlayerViewModel>() {
@@ -69,8 +67,9 @@ class PlayerActivity : BaseActivity<ActivityPlayerBinding, PlayerViewModel>() {
     }
     private fun initializePlayer() {
         player = SimpleExoPlayer.Builder(this).build()
-        val videoUrl = "https://www.youtube.com/watch?v=0lXJTIMExUY"
+        val videoUrl = "https://www.youtube.com/watch?v=$id"
         object : YouTubeExtractor(this){
+            @SuppressLint("StaticFieldLeak")
             override fun onExtractionComplete(
                 ytFiles: SparseArray<YtFile>?,
                 videoMeta: VideoMeta?
